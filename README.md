@@ -3,4 +3,4 @@
 Work in progress
 
 # Description
-Another exercise using WTForms and Bootstrap-Flask
+Another exercise using Flask, WTForms and Bootstrap-Flask.

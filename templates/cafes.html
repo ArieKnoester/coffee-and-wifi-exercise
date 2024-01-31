@@ -10,12 +10,12 @@
 
 	        <table class="table table-dark table-striped table-hover">
                 <tbody>
-                    {% for cafe in cafes: %}
+                    {% for cafe in cafes %}
                         <tr class="table-group-divider" style="border-top-color:grey">
-                        {% for item in cafe: %}
-                            {% if "https" in item: %}
+                        {% for item in cafe %}
+                            {% if "https" in item %}
                                 <td><a href="{{ item }}">Maps Link</a></td>
-                            {% else: %}
+                            {% else %}
                                 <td>{{ item }}</td>
                             {% endif %}
                         {% endfor %}

@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_bootstrap import Bootstrap5
 from site_forms import AddCafeForm
 from dotenv import load_dotenv
@@ -31,14 +31,22 @@ def home():
     return render_template("index.html")
 
 
-@app.route('/add')
+@app.route('/add', methods=["GET", "POST"])
 def add_cafe():
     form = AddCafeForm()
     if form.validate_on_submit():
-        print("True")
-    # Exercise:
-    # Make the form write a new row into cafe-data.csv
-    # with   if form.validate_on_submit()
+        # Remove the 'submit' and 'csrf' values.
+        form_data = list(form.data.values())[:-2]
+
+        with open('cafe-data.csv', 'a', encoding='utf-8', newline='') as csv_file:
+
+            csv_file.write("\n")
+
+            # lineterminator = '' fixes a Windows specific issue where an extra \n will be added
+            # to the row written which causes empty lines in the csv file.
+            writer = csv.writer(csv_file, lineterminator='')
+            writer.writerow(form_data)
+
     return render_template('add.html', form=form)
 
 

@@ -19,22 +19,22 @@ class AddCafeForm(FlaskForm):
         validators=[DataRequired()]
     )
     closes = StringField(
-        label="Closing Time e.g. 5:30 PM",
+        label="Closing Time e.g. 5:30PM",
         validators=[DataRequired()]
     )
     coffee_rating = SelectField(
         label="Coffee Rating",
-        choices=["☕", "☕☕", "☕☕☕", "☕☕☕☕", "☕☕☕☕☕"],
+        choices=["", "☕", "☕☕", "☕☕☕", "☕☕☕☕", "☕☕☕☕☕"],
         validators=[DataRequired()]
     )
     wifi_rating = SelectField(
         label="Wi-Fi Strength Rating",
-        choices=["✘", "💪", "💪💪", "💪💪💪", "💪💪💪💪", "💪💪💪💪💪"],
+        choices=["", "✘", "💪", "💪💪", "💪💪💪", "💪💪💪💪", "💪💪💪💪💪"],
         validators=[DataRequired()]
     )
     power_availability = SelectField(
         label="Power Socket Availability",
-        choices=["✘", "🔌", "🔌🔌", "🔌🔌🔌", "🔌🔌🔌🔌", "🔌🔌🔌🔌🔌"],
+        choices=["", "✘", "🔌", "🔌🔌", "🔌🔌🔌", "🔌🔌🔌🔌", "🔌🔌🔌🔌🔌"],
         validators=[DataRequired()]
     )
     submit = SubmitField(label="Add Cafe")
